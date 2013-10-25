@@ -28,38 +28,96 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<p>This is a project to make a low price ($35) Arduino based robot.</p>
+<h2><strong>Hardware List:</strong></h2>
+<address>(This list is a work in progress. The hardware listed are the most viable candidates for the final robot, but most have not been tested.)</address>
+<ul>
+<li><strong>Drive motors</strong>:
+<ol>
+<li><a href="http://www.pololu.com/catalog/product/1125">Pololu 120:1 Mini Plastic Gearmotor Offset 3mm D-Shaft Output</a>&nbsp;- $5.49 each</li>
+</ol>
+<ul>
+<ul>
+<li><strong>Technical diagram:</strong> &nbsp;<a href="http://www.pololu.com/picture/view/0J2877">http://www.pololu.com/picture/view/0J2877</a></li>
+<li><strong>Size:</strong> 36.5 x 20 x 27.4 mm</li>
+<li><strong>Shaft diameter:</strong> 3 mm</li>
+<li><strong>Weight:</strong> 19 g</li>
+<li><strong>General specifications</strong>
+<ul>
+<li><strong>Shaft type:</strong> offset 3mm D</li>
+<li><strong>Typical operating voltage:</strong> 4.5 V</li>
+<li><strong>Gear ratio:</strong> 120:1</li>
+<li><strong>Free-run speed @ 4.5V:</strong> 120 rpm</li>
+<li><strong>Free-run current @ 4.5V:</strong> 80 mA</li>
+<li><strong>Stall current @ 4.5V:</strong> 800 mA</li>
+<li><strong>Stall torque @ 4.5V:</strong> 20 oz·in3</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+<li>Wheels:
+<ol>
+<li><a href="http://www.pololu.com/catalog/product/952" target="_blank">Pololu Ball Caster with 1/2″ Plastic Ball</a>&nbsp;- $1.99 each
+<ul>
+<li>Technical diagram:&nbsp;<a href="http://www.pololu.com/picture/view/0J472" target="_blank">http://www.pololu.com/picture/view/0J472</a>,&nbsp;<a href="http://www.pololu.com/picture/view/0J473" target="_blank">http://www.pololu.com/picture/view/0J473</a></li>
+</ul>
+</li>
+<li>Laser cut template includes a set of primary wheels.</li>
+<li><a href="http://www.pololu.com/catalog/product/1424" target="_blank">Pololu Wheel 60x8mm Pair – White</a>&nbsp;-&nbsp;$7.95 a pair (Optional)
+<ul>
+<li>Technical diagram: &nbsp;<a href="http://www.pololu.com/picture/view/0J2570" target="_blank">http://www.pololu.com/picture/view/0J2570</a></li>
+<li>Size: 60 x 8 mm</li>
+<li>Weight: 0.4 oz1</li>
+</ul>
+<ul>
+<li>Shaft diameter: 3 mm2</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Sensors:
+<ol>
+<li><a href="http://www.adafruit.com/products/161" target="_blank">Photo cell (CdS photoresistor)</a> -&nbsp;$0.95 each</li>
+<li><a href="http://www.adafruit.com/products/754" target="_blank">Super Bright White 5mm LED (25 pack)</a> – $6.95 for 25</li>
+<li><a href="http://www.radioshack.com/product/index.jsp?productId=2062347" target="_blank">10K Ohm Resistor</a> – $1.49 for 5</li>
+<li><a href="http://www.pololu.com/catalog/product/2459" target="_blank">QTR-1RC Reflectance Sensor (2-Pack)</a>&nbsp;- $4.25 a pair</li>
+</ol>
+</li>
+<li>Logic:
+<ul>
+<li><a href="http://www.adafruit.com/products/1501" target="_blank">Adafruit Trinket – Mini Microcontroller – 5V Logic</a> -&nbsp;$7.95</li>
+<li><a href="http://www.adafruit.com/products/756" target="_blank">NPN Bipolar Transistors (PN2222) – 10 pack</a> -&nbsp;$1.95</li>
+</ul>
+</li>
+<li>Power:
+<ol>
+<li><a href="http://www.adafruit.com/products/830" target="_blank">4 x AA Battery Holder with On/Off Switch</a> -&nbsp;$2.95</li>
+</ol>
+</li>
+<li>Prototype board:
+<ol>
+<li><a href="http://www.pololu.com/catalog/product/350" target="_blank">270-Point Breadboard</a>&nbsp;- $3.30</li>
+<li><a href="http://www.adafruit.com/products/65" target="_blank">Tiny breadboard</a> -&nbsp;$4.00</li>
+</ol>
+</li>
+</ul>
+<h2>Laser cutting file:</h2>
+<ul>
+<li><a href="http://www.thingiverse.com/thing:166465/">http://www.thingiverse.com/thing:166465/</a></li>
+<li>Chassis assembly:
+<ul>
+<li>
+<p></p><div id="attachment_219" style="width: 410px" class="wp-caption aligncenter"><a href="http://richardalbritton.files.wordpress.com/2013/10/arduino-robot-chassis-build.png"><img class="size-full wp-image-219" alt="How to assemble the laser cut robot chassis." src="http://richardalbritton.files.wordpress.com/2013/10/arduino-robot-chassis-build.png?w=830"></a><p class="wp-caption-text">How to assemble the laser cut robot chassis.</p></div></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h2>Hardware Setup:</h2>
+<div id="attachment_217" style="width: 310px" class="wp-caption aligncenter"><a href="http://richardalbritton.files.wordpress.com/2013/10/adafruit_trinket_pins.jpg"><img class="size-medium wp-image-217" alt="A layout of the Pin capabilities to help configure wiring and programming." src="http://richardalbritton.files.wordpress.com/2013/10/adafruit_trinket_pins.jpg?w=300&amp;h=276" width="300" height="276"></a><p class="wp-caption-text">A layout of the Pin capabilities to help configure wiring and programming.</p></div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
+  
+</section>
 
         <aside id="sidebar">
           <a href="https://github.com/RichardA1/Arduino_35-dollar_Robot/zipball/master" class="button">
