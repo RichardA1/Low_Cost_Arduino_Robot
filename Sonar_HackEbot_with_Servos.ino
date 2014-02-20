@@ -13,9 +13,10 @@ long duration, inches, cm;
 // 604 microseconds at 30 times = CW 360%
 // 876 microseconds at 30 times = CCW 360%
 const int turnCW = 604;
-const int turnCCW = 876;
+const int turnCCW = 856;
 
 int var = 0;  // Used to loop the servo movements
+int randNumber = 0;  // Used to choose a direction to turn
 
 void setup()
 {
@@ -69,15 +70,7 @@ void TurnR(){ // Turn Right
     digitalWrite(servo2, LOW);
     delay(10);
 }
-
-/* The Hack-E-Bot can now be programmed to move by giving it instructions like:
-Go_forward(); -- to drive forward
-Go_backward(); -- to drive backward
-TurnR(); -- to turn right
-TurnL(); -- to turn left
-*/
-void loop()
-{
+void SonarPing() {
   /* The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
   Give a short LOW pulse beforehand to ensure a clean HIGH pulse:*/
   digitalWrite(sonarTrig, LOW);
@@ -92,23 +85,46 @@ void loop()
   
   // convert the time into a distance.
   inches = microsecondsToInches(duration);
-  cm = microsecondsToCentimeters(duration);  
-
+  cm = microsecondsToCentimeters(duration);
+  
   if ( cm < obstacle ) {
     // back_track * delay(15) = distance the rover will back-up during 
     // obstacle avoidance.
       var = 0;
-      while(var < 60){
+      while(var < 30){
         Go_backward();
         var++;
       }
       var = 0;
-      while(var < 30){
-        TurnR();
-        var++;
+      randNumber = random(200);
+      if (randNumber < 99) {
+        while(var < 15){
+          TurnL();
+          var++;
+          }
+      } else {
+        while(var < 15){
+          TurnR();
+          var++;
+        }
       }
-    } else {
-        Go_forward();
+    }
+}
+
+/* The Hack-E-Bot can now be programmed to move by giving it instructions like:
+Go_forward(); -- to drive forward
+Go_backward(); -- to drive backward
+TurnR(); -- to turn right
+TurnL(); -- to turn left
+*/
+void loop()
+{  
+   SonarPing();
+   //SonarScan();
+  var = 0;
+  while(var < 5){
+    Go_forward();
+    var++;
     }
 }
 
