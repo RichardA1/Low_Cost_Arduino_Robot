@@ -3,13 +3,16 @@
 Servo RightS;
 Servo LeftS;
  
-const int servoR = 5;  // Right Servo control line (orange) on Pin #13
-const int servoL = 6;   // Left Servo control line (orange) on Pin #8
-const int sonarTrig = 3;   // Connect the sonar signal pin to this pin on the Trinket.
-const int sonarEcho = 4;
+// SERVOS
+const int servoR = 5;  // Connect the Right Servo control line (orange) to this pin on the Trinket.
+const int servoL = 6;   // Connect the Left Servo control line (orange) to this pin on the Trinket.
+
+//SONAR
+const int sonarTrig = 3;   // Connect the sonar trigger (blue) pin to this pin on the Trinket.
+const int sonarEcho = 4;   // Connect the sonar echo (green) pin to this pin on the Trinket.
  
-// Number in cm when the rover will reverse and try to navigate around.
-const int obstacle = 8;
+
+const int obstacle = 8;   // Number in cm when the rover will reverse and try to navigate around.
  
 // Duration of a ping, distance in inches, distance converted to cm.
 long duration, inches, cm;
@@ -101,21 +104,27 @@ void SonarPing() {
       }
     }
 }
- 
+
+// CONVERSION
+// The general formula for Distance to Time conversion or vice versa is, 
+// Velocity = Distance / Time
+// Distance = Velocity of Sound * Time
+
+
+// According to Parallax's datasheet for the PING)))™ ultrasonic sensor, there are
+// 73.746 microseconds per inch (i.e. sound travels at 1130 feet per
+// second).  This gives the distance travelled by the ping, outbound
+// and return, so we divide by 2 to get the distance of the obstacle.
+// See: http://www.parallax.com/sites/default/files/downloads/28015-PING-Detect-Distance.pdf
 long microsecondsToInches(long microseconds)
 {
-  // According to Parallax's datasheet for the PING))), there are
-  // 73.746 microseconds per inch (i.e. sound travels at 1130 feet per
-  // second).  This gives the distance travelled by the ping, outbound
-  // and return, so we divide by 2 to get the distance of the obstacle.
-  // See: http://www.parallax.com/dl/docs/prod/acc/28015-PING-v1.3.pdf
   return microseconds / 74 / 2;
 }
- 
+
+// The moveSpeed of sound is 340 m/s or 29 microseconds per centimeter.
+// The ping travels out and back, so to find the distance of the
+// object we take half of the distance travelled.
 long microsecondsToCentimeters(long microseconds)
 {
-  // The moveSpeed of sound is 340 m/s or 29 microseconds per centimeter.
-  // The ping travels out and back, so to find the distance of the
-  // object we take half of the distance travelled.
   return microseconds / 29 / 2;
 }
