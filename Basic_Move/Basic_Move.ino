@@ -75,7 +75,28 @@ void TurnR(int S, int T){ // Turn Right, S = moveSpeed, T = moveTime.
   LeftS.write(S + 90);
   delay(T);
 }
- 
+
+// SONAR PING
+// The Ping))) sensor sends a brief chirp with its ultrasonic speaker and
+// makes it possible for the microcontroller to measure the time 
+// it takes the echo to return to its ultrasonic microphone.
+// The time measurement is how long it took sound to travel 
+// to the object and back. With this measurement, 
+// you can then use the speed of sound in air to make your program 
+// calculate the object's distance in centimeters, inches, feet, etc...
+
+/* According to Parallax's datasheet, the PING)))™ ultrasonic sensor's chirps are not audible because 40 kHz is ultrasonic.
+What we consider sound is our inner ear's ability to detect the variations in air pressure
+caused by vibration. The rate of these variations determines the pitch of the tone. Higher
+frequency tones result in higher pitch sounds and lower frequency tones result in lower pitch
+tones.
+Most people can hear tones that range from 20 Hz, which is very low pitch, to 20 kHz, which
+is very high pitch. Subsonic is sound with frequencies below 20 Hz, and ultrasonic is sound
+with frequencies above 20 kHz. Since the Ping))) sensor's chirps are at 40 kHz, they are
+definitely ultrasonic, and not audible. */
+// See: http://www.parallax.com/sites/default/files/downloads/28015-PING-Detect-Distance.pdf
+
+
 void SonarPing() {
   /* The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
   Give a short LOW pulse beforehand to ensure a clean HIGH pulse:*/
@@ -110,21 +131,19 @@ void SonarPing() {
 // Velocity = Distance / Time
 // Distance = Velocity of Sound * Time
 
-
-// According to Parallax's datasheet for the PING)))™ ultrasonic sensor, there are
-// 73.746 microseconds per inch (i.e. sound travels at 1130 feet per
-// second).  This gives the distance travelled by the ping, outbound
-// and return, so we divide by 2 to get the distance of the obstacle.
-// See: http://www.parallax.com/sites/default/files/downloads/28015-PING-Detect-Distance.pdf
+// The speed of sound at sea level = 1 116.43701 feet per second or 0.0133972441 inches per microsecond.  
+// This gives the distance travelled by the ping, outbound and return, 
+// so we divide by 2 to get the distance of the obstacle.
 long microsecondsToInches(long microseconds)
 {
-  return microseconds / 74 / 2;
+  return (microseconds * 0.0133972441) / 2;
 }
 
-// The moveSpeed of sound is 340 m/s or 29 microseconds per centimeter.
+
+// The speed of sound at sea level is 340.29 m/s or 0.034029 centimeters / microsecond
 // The ping travels out and back, so to find the distance of the
 // object we take half of the distance travelled.
 long microsecondsToCentimeters(long microseconds)
 {
-  return microseconds / 29 / 2;
+  return (microseconds * 0.034029) / 2;
 }
